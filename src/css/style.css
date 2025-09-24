@@ -1,29 +1,8 @@
-/* .form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 10px;
-}
-.btn {
-  border-radius: 8px;
-  padding: 8px 16px;
-  width: 91px;
-  height: 40px;
-  background: #4e75ff;
-  text-decoration-color: white;
-}
-.input {
-  width: 272px;
-  height: 40px;
-} */
 body {
-  background: linear-gradient(135deg, #8275fb, #46c9e5); /* красивий фон */
+  background: linear-gradient(135deg, #8275fb, #46c9e5);
   font-family: Arial, sans-serif;
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
 }
 
 .form {
@@ -35,13 +14,13 @@ body {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  position: sticky;
-  top: 10px;
-  z-index: 1000;
+  margin: 10px auto;
+  max-width: 400px;
 }
 
 .input {
-  flex: 1;
+  /* flex: none; */
+  width: 200px;
   padding: 12px 18px;
   border: none;
   border-radius: 12px;
@@ -78,6 +57,79 @@ body {
   transform: translateY(-2px);
 }
 
-.btn:active {
-  transform: translateY(0);
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  list-style: none;
+}
+
+.gallery img {
+  display: block;
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.loader.is-visible {
+  display: flex;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.info p {
+  margin: 0;
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.loader {
+  font-size: 38px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  text-align: center;
+  position: relative;
+  width: 200px;
+}
+
+.loader:after {
+  content: 'Loading';
+  position: relative;
+  z-index: 5;
+}
+
+.loader:before {
+  content: '';
+  height: 6px;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  background: linear-gradient(#f5f904 100%, transparent 0) no-repeat;
+  background-size: 0% auto;
+  animation: 10s lineGrow linear infinite;
+}
+
+@keyframes lineGrow {
+  to {
+    background-size: 100% auto;
+  }
 }
